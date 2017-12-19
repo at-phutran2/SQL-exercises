@@ -1,0 +1,56 @@
+CREATE DATABASE sqlexcercise;
+CREATE TABLE IF NOT EXISTS follow (
+	id int(11) unsigned not null auto_increment,
+    from_user_id INT(11),
+	to_user_id INT(11),
+    created_at TIMESTAMP,
+	primary key(id)
+);
+CREATE TABLE IF NOT EXISTS blog (
+    id int(11) unsigned not null auto_increment,
+	category_id INT(11),
+	user_id INT(11),
+	title VARCHAR(255),
+	view INT(11),
+	is_active TINYINT(1),
+	content TEXT,
+    created_at TIMESTAMP,
+	updated_at TIMESTAMP,
+	primary key(id)
+);
+CREATE TABLE IF NOT EXISTS comment (
+	id int(11) unsigned not null auto_increment,
+	target_table VARCHAR(20),
+	target_id INT(11),
+	user_id INT(11),
+	comment TEXT,
+	created_at TIMESTAMP,
+	updated_at TIMESTAMP,
+	primary key(id)
+); 
+CREATE TABLE IF NOT EXISTS user (
+	id int(11) unsigned not null auto_increment,
+	full_name VARCHAR(255),
+	email VARCHAR(255),
+	rank TINYINT(4),
+	is_active TINYINT(1),
+	created_at TIMESTAMP,
+	primary key(id)
+);
+CREATE TABLE IF NOT EXISTS category (
+	id int(11) unsigned not null auto_increment,
+	title VARCHAR(255),
+	description VARCHAR(255),
+	primary key(id)
+);
+CREATE TABLE IF NOT EXISTS news(
+	id int(11) unsigned not null auto_increment,
+	category_id INT(11),
+	title VARCHAR(255),
+	view INT(11),
+	is_active TINYINT(1),
+	content TEXT,
+	created_at TIMESTAMP,
+	updated_at TIMESTAMP,
+	primary key(id)
+);
